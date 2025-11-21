@@ -1,0 +1,58 @@
+THEME SWITCHER ASSIGNMENT
+-------------------------
+
+Your task is to COMPLETE the missing themes inside script.js:
+    1) DARK MODE
+    2) TROPICAL MODE
+
+Only Light Mode is already implemented.
+You must build the other two themes using the same object structure.
+
+YOUR COLORS:
+------------
+Use the following color palettes to fill your DARK and TROPICAL theme objects.
+
+DARK MODE COLORS:
+-----------------
+background = #181818
+text       = #ffffff
+nav        = #222222
+hero       = #333333
+card       = #2a2a2a
+
+palette:
+    1) #555555
+    2) #777777
+    3) #999999
+
+
+TROPICAL MODE COLORS:
+---------------------
+background = #fff4e0
+text       = #b35400
+nav        = #ffd8a8
+hero       = #ffe5c2
+card       = #fff0db
+
+palette:
+    1) #ff8c42
+    2) #ffa75e
+    3) #ffc799
+
+
+RULES:
+------
+1. You may ONLY edit script.js.
+2. Do not modify index.html or style.css.
+3. The theme must update:
+       - Page background
+       - Text color
+       - Navbar color
+       - Hero section color
+       - Feature card colors
+       - The 3 color palette boxes
+4. Test your theme by clicking the buttons.
+5. Make sure your object keys exactly match the Light Mode example.
+
+
+END OF INSTRUCTIONS

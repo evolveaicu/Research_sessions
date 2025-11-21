@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Personality Chatbot</title>
+
+<style>
+    body {
+        margin: 0;
+        background: #f4f4f4;
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .chat-container {
+        width: 420px;
+        height: 85vh;
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .header {
+        background: #4a63e7;
+        color: white;
+        padding: 15px;
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .messages {
+        flex: 1;
+        padding: 15px;
+        overflow-y: auto;
+    }
+
+    .msg {
+        margin-bottom: 15px;
+        max-width: 80%;
+        padding: 10px 14px;
+        border-radius: 10px;
+        line-height: 1.4;
+        word-wrap: break-word;
+    }
+
+    .user {
+        background: #4a63e7;
+        color: white;
+        margin-left: auto;
+        border-bottom-right-radius: 0;
+    }
+
+    .bot {
+        background: #e6e6e6;
+        color: black;
+        margin-right: auto;
+        border-bottom-left-radius: 0;
+    }
+
+    .input-area {
+        display: flex;
+        padding: 10px;
+        background: #f0f0f0;
+        border-top: 1px solid #ccc;
+    }
+
+    .input-area input {
+        flex: 1;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+
+    .input-area button {
+        margin-left: 10px;
+        padding: 12px 18px;
+        border: none;
+        background: #4a63e7;
+        color: white;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .input-area button:hover {
+        background: #3d52c6;
+    }
+
+    .personality-box {
+        padding: 10px;
+        background: #fafafa;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .personality-box input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        outline: none;
+    }
+</style>
+</head>
+
+<body>
+<div class="chat-container">
+    
+    <div class="header">AI Personality Chatbot</div>
+
+    <!-- Personality input -->
+    
+
+    <!-- Chat messages -->
+    <div class="messages" id="messages"></div>
+
+    <!-- Input box -->
+    <div class="input-area">
+        <input id="userInput" placeholder="Type your message..." />
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+</div>
+
+<script>
+    const messagesBox = document.getElementById("messages");
+
+    function addMessage(text, sender) {
+        const div = document.createElement("div");
+        div.className = `msg ${sender}`;
+        div.textContent = text;
+        messagesBox.appendChild(div);
+        messagesBox.scrollTop = messagesBox.scrollHeight;
+    }
+
+    async function sendMessage() {
+        const input = document.getElementById("userInput");
+        const personalityInput = document.getElementById("personality");
+
+        const text = input.value.trim();
+        const personality = personalityInput.value.trim() || "You are a helpful AI assistant.";
+
+        if (!text) return;
+
+        // Show user message
+        addMessage(text, "user");
+        input.value = "";
+
+        // Show loading message
+        const loading = document.createElement("div");
+        loading.className = "msg bot";
+        loading.textContent = "Thinking...";
+        messagesBox.appendChild(loading);
+        messagesBox.scrollTop = messagesBox.scrollHeight;
+
+        try {
+            const response = await fetch("http://localhost:8000/chat", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    message: text,
+                    personality: personality
+                })
+            });
+
+            const data = await response.json();
+            loading.remove();
+
+            if (data.response) {
+                addMessage(data.response, "bot");
+            } else {
+                addMessage("Error: " + JSON.stringify(data.error), "bot");
+            }
+
+        } catch (err) {
+            loading.remove();
+            addMessage("Network error: " + err.message, "bot");
+        }
+    }
+
+    document.getElementById("userInput").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
+    });
+</script>
+
+</body>
+</html>

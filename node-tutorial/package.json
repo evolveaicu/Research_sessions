@@ -1,0 +1,20 @@
+{
+  "name": "tutorial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node main.cjs",
+    "evolve-ai": "node script.js"
+  },
+  "keywords": [],
+  "author": "Rachit Goyal",
+  "license": "ISC",
+  "type": "module",
+  "description": "main nahi bataa rhaaa",
+  "dependencies": {
+    "chalk": "~5.6.2",
+    "express": "^5.1.0",
+    "figlet": "^1.9.4"
+  }
+}

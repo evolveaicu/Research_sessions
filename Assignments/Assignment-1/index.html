@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Theme Switcher Assignment</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+    <nav>
+        <h2>My Website</h2>
+        <div class="theme-buttons">
+            <button onclick="setTheme('light')">Light</button>
+            <button onclick="setTheme('dark')">Dark</button>
+            <button onclick="setTheme('tropical')">Tropical</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Welcome Students!</h1>
+        <p>Practice DOM manipulation by changing themes.</p>
+    </header>
+
+    <section class="features">
+        <h2>Features</h2>
+        <div class="feature-list">
+            <div class="feature-card">
+                <h3>Nested DOM</h3>
+                <p>Change theme colors deeply inside nested elements.</p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Color Palette</h3>
+                <p>The boxes below change based on the selected theme.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- COLOR PALETTE -->
+    <section class="palette-section">
+        <h2>Theme Color Palette</h2>
+        <div class="palette">
+            <div class="color-box box1"></div>
+            <div class="color-box box2"></div>
+            <div class="color-box box3"></div>
+        </div>
+    </section>
+
+<script src="script.js"></script>
+</body>
+</html>
