@@ -5,3 +5,5 @@ Session 2: https://sand-orca-823.notion.site/Frontend-Stack-Essentials-Package-M
 Session 3: https://sand-orca-823.notion.site/React-Foundations-to-Hands-On-Day-3-2b745c4819318067b43bcf3034b51d32
 
 Session 4: https://sand-orca-823.notion.site/React-Deep-Dive-Hands-On-Day-4-2bc45c48193180548fc4c0534b5374fe?pvs=73
+
+Session 5: https://reinvented-pen-8e6.notion.site/Introduction-to-Backend-FastAPI-Day-5-2fb7336ffa0c80f48470c04875011fde
