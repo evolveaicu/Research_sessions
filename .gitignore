@@ -3,3 +3,4 @@ __pycache__
 .env
 node_modules
 tempCodeRunnerFile.js
+package-lock.json

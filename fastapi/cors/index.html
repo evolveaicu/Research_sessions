@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CORS Test</title>
+</head>
+<body>
+
+<button onclick="fetchUsers()">Fetch Users</button>
+
+<script>
+async function fetchUsers() {
+    const response = await fetch("http://localhost:8000/api/users");
+    const data = await response.json();
+    console.log(data);
+    alert("Check console!");
+}
+</script>
+
+</body>
+</html>
