@@ -5,7 +5,7 @@ website: https://evolveai.chitkara.edu.in/
 
 youtube (official): https://www.youtube.com/@evolveai_cuiet
 
-youtube (reserach-team-sessions): https://www.linkedin.com/company/evolveai-cuiet/
+youtube (reserach-team-sessions): https://www.youtube.com/@EvolveAI-c2b
 
 linkedin: https://www.linkedin.com/company/evolveai-cuiet/
 
